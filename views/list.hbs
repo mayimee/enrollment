@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Students</title>
+
+    <link rel="stylesheet" href="/public/style.css">
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+</head>
+<body class="p-5">
+
+    <a href="/registration"><button type="button" class="btn btn-info">Add New Student</button></a>
+    <br>
+    <br>
+    <h4>{{title}}</h4>
+
+    <table class="table table-striped">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Course</th>
+            <th>Address</th>
+            <th>Gender</th>
+            <th>Birthday</th>
+            <th>Contact Number</th>
+            <th>Email Address</th>
+            <th>Action</th>
+        </tr>
+        {{#each user}}
+        <tr>
+            <td>{{this.first_name}}</td>
+            <td>{{this.last_name}}</td>
+            <td>{{this.course}}</td>
+            <td>{{this.address}}</td>
+            <td>{{this.gender}}</td>
+            <td>{{this.birthday}}</td>
+            <td>{{this.contact_number}}</td>
+            <td>{{this.email_address}}</td>
+            <td>
+                <a href="/auth/updateform/{{this.email_address}}">Edit</a>
+                <a href="/auth/deleteform/{{this.email_address}}">Delete</a>
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+
+    
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>

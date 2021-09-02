@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+    <link rel="stylesheet" href="/public/style.css">
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+</head>
+<body class="p-5">
+    
+    <div class="border border-5 p-3">
+        <form action="/auth/registration" method="POST">
+            <h2 class="text-center"><strong>Student Registration</strong></h2>
+            <h4>Student Profile</h4>
+            <div class="row">
+                <div class="col-md-6 p-2">
+                    <input type="text" id="first_name" name="first_name" placeholder="First Name" class="form-control" required>
+                </div>
+                <div class="col-md-6 p-2">
+                    <input type="text" id="last_name" name="last_name" placeholder="Last Name" class="form-control" required>
+                </div>
+                <div class="col-md-8 p-2">
+                    <input type="text" id="address" name="address" placeholder="Address" class="form-control" required>
+                </div>
+                <div class="col-md-4 p-2">
+                    <input type="number" id="contact_number" name="contact_number" placeholder="Contact Number" class="form-control" required>
+                </div>
+                <div class="col-md-4 p-2">
+                    <input type="text" id="birthday" name="birthday" placeholder="Birthday" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" required>
+                </div>
+                <div class="col-md-4 p-2">
+                    <input type="text" id="gender" name="gender" placeholder="Gender" class="form-control" required>
+                </div>
+                <div class="col-md-4 p-2">
+                    <input type="text" id="course" name="course" placeholder="Course" class="form-control" required>
+                </div>
+                <hr>
+                <h4>User Login Profile</h4>
+                <div class="col-md-12 p-2">
+                    <input type="email" id="email_address" name="email_address" placeholder="Email Address" class="form-control" required>
+                </div>
+                <div class="col-md-12 p-2">
+                    <input type="password" id="password" name="password" placeholder="Password" class="form-control" required>
+                </div>
+                <div class="col-md-12 p-2">
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password" class="form-control" required>
+                </div>
+            </div>
+            <div class="py-4">
+                <input type="checkbox" id="agree" name="agree" required> This is to certify that all information above is true and verified.
+            </div>
+            <div class="d-grid gap-2 p-3">
+                <button type="submit" class="btn btn-primary">Submit Information</button>
+            </div>
+        </form>
+    </div>
+
+    <a href="/">Back to Login</a>
+
+    {{#if message}}
+        <h5 class="alert alert-danger mt-4 text-center">{{message}}</h5>
+    {{/if}}
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>

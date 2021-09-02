@@ -1,0 +1,12 @@
+.loginForm
+{
+    width: 100%;
+    max-width: 530px;
+    padding: 15px;
+    margin: auto;
+}
+
+body
+{
+    background-image: url('/public/school01.jpg') center center fixed;
+}
