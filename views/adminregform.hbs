@@ -15,9 +15,9 @@
 <body class="p-5">
     
     <div class="border border-5 p-3">
-        <form action="/auth/registration" method="POST">
-            <h2 class="text-center"><strong>Student Registration</strong></h2>
-            <h4>Student Profile</h4>
+        <form action="/auth/adminregistration" method="POST">
+            <h2 class="text-center"><strong>Admin Registration</strong></h2>
+            <h4>Admin Profile</h4>
             <div class="row">
                 <div class="col-md-6 p-2">
                     <input type="text" id="first_name" name="first_name" placeholder="First Name" class="form-control" required>
@@ -25,23 +25,6 @@
                 <div class="col-md-6 p-2">
                     <input type="text" id="last_name" name="last_name" placeholder="Last Name" class="form-control" required>
                 </div>
-                <div class="col-md-8 p-2">
-                    <input type="text" id="address" name="address" placeholder="Address" class="form-control" required>
-                </div>
-                <div class="col-md-4 p-2">
-                    <input type="number" id="contact_number" name="contact_number" placeholder="Contact Number" class="form-control" required>
-                </div>
-                <div class="col-md-4 p-2">
-                    <input type="text" id="birthday" name="birthday" placeholder="Birthday" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control" required>
-                </div>
-                <div class="col-md-4 p-2">
-                    <input type="text" id="gender" name="gender" placeholder="Gender" class="form-control" required>
-                </div>
-                <div class="col-md-4 p-2">
-                    <input type="text" id="course" name="course" placeholder="Course" class="form-control" required>
-                </div>
-                <hr>
-                <h4>User Login Profile</h4>
                 <div class="col-md-12 p-2">
                     <input type="email" id="email_address" name="email_address" placeholder="Email Address" class="form-control" required>
                 </div>
@@ -60,6 +43,8 @@
             </div>
         </form>
     </div>
+
+    <a href="/">Back to Login</a>
 
     {{#if message}}
         <h5 class="alert alert-danger mt-4 text-center">{{message}}</h5>

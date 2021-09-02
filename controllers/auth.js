@@ -51,7 +51,48 @@ exports.registration = (req, res) => {
             else
             {
                 console.log(results);
-                return res.render('registrationform', {message:'Student Information has been saved!!'});
+                
+                db.query(`select * from student`, (err, results) => {
+                    if(err) throw err;
+    
+                    res.render('list', {title: 'List of Students', user: results});
+                });
+            }
+        })
+    });
+}
+
+exports.adminregistration = (req, res) => {
+
+    const {first_name, last_name, email_address, password, confirm_password} = req.body;
+
+    db.query(`select email_address from admin where email_address = ?`, [email_address], async(err, results) =>{
+        if(err)
+        {
+            throw err;
+        }
+
+        if (results.length > 0)
+        {
+            return res.render('adminregform', {message: 'Email entered is already in use.'});
+        }
+        else if (password !== confirm_password)
+        {
+            return res.render('adminregform', {message: 'Password entered do not match'});
+        }
+
+        let encpass = await bcrypt.hash(password, 8);
+        console.log(encpass);
+
+        db.query('insert into admin set ?', {first_name: first_name, last_name:last_name, email_address:email_address, password:encpass}, (err, results)=>{
+            if(err)
+            {
+                throw err;
+            }
+            else
+            {
+                console.log(results);
+                return res.render('adminregform', {message:'Admin Account has been saved!!'});
             }
         })
     });
@@ -66,7 +107,7 @@ exports.login = (req, res) => {
         return res.status(400).render('index', {message: 'Please provide email address and password'});
     }
 
-    db.query(`select * from student where email_address = ?`, [email_address], async (err, results)=>{
+    db.query(`select * from admin where email_address = ?`, [email_address], async (err, results)=>{
         if (!results || !(await bcrypt.compare(password, results[0].password)))
         {
             res.status(401).render('index', {message:'Email and/or password is incorrect.'});
@@ -86,7 +127,7 @@ exports.login = (req, res) => {
             db.query(`select * from student`, (err, results) => {
                 if(err) throw err;
 
-                res.render('list', {title: 'List of Users', user: results});
+                res.render('list', {title: 'List of Students', user: results});
             });
         }
     })

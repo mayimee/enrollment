@@ -3,6 +3,7 @@ const router = express.Router();
 const registrationcontroller = require('../controllers/auth');
 
 router.post('/registration', registrationcontroller.registration);
+router.post('/adminregistration', registrationcontroller.adminregistration);
 router.post('/login', registrationcontroller.login);
 router.get('/updateform/:email_address', registrationcontroller.updateform);
 router.post('/updateuser', registrationcontroller.updateuser);
